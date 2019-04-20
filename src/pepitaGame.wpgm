@@ -19,8 +19,10 @@ program PepitaGame {
 	game.addVisual(pepita)
 
 //	TECLADO
-	keyboard.h().onPressDo { game.say(pepita, "Hola chiques!") }
-
+	keyboard.h().onPressDo { game.say(pepita, "Hola a Todos!") }
+	
+	keyboard.a().onPressDo { pepita.comer(alpiste)}
+	keyboard.m().onPressDo { pepita.comer(manzana)}
 	keyboard.v().onPressDo { pepita.volaHacia(villaGesell) }
 	keyboard.b().onPressDo { pepita.volaHacia(buenosAires) }
 

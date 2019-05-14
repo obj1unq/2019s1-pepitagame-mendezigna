@@ -1,9 +1,10 @@
 import ciudades.*
 import wollok.game.*
 import comidas.*
+import roque.*
 
 object pepita {
-	var property energia = 50
+	var property energia = 1000
 	var property ciudad = buenosAires 
 	var property position = game.at(3,3)
 	var amiga 
@@ -52,43 +53,17 @@ object pepita {
 	}
 }
 
-object pepona {
-	var property image = "pepona.png"
-	var property position = game.at(4, 2)
-	method nombre() = "Pepona"
-}
+//object pepona {
+//	var property image = "pepona.png"
+//	var property position = game.at(4, 2)
+//	method nombre() = "Pepona"
+//}
 
-object pipa {
-	var property position = game.at(5, 8)
-	var property image = "pepitaCanchera.png"
-	method nombre() = "Pipa"
-}
+//object pipa {
+//	var property position = game.at(5, 8)
+//	var property image = "pepitaCanchera.png"
+//	method nombre() = "Pipa"
+//}
 
 
 
-object roque {
-	var property image = "jugador.png"
-	var property position = game.at(1,5)
-	var property comida = null
-	
-	method move(nuevaPosicion){
-		position = nuevaPosicion
-	}
-	
-	method agarrar(_comida){
-		if (comida != null){
-			game.addVisualIn(comida, game.at(1.randomUpTo(10).truncate(0), 1.randomUpTo(10).truncate(0)))
-			game.whenCollideDo(_comida, {entrenador => entrenador.agarrar(comida)})
-			comida = _comida
-			game.removeVisual(comida)
-			
-		}
-		else {
-			comida = _comida
-			game.removeVisual(comida)
-			
-		}
-	}
-	method tieneComida() = comida == alpiste || comida == manzana
-	
-}
